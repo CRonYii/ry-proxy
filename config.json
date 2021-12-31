@@ -1,4 +1,9 @@
 {
+	"log": {
+	    "loglevel": "info",
+	    "access": "/var/log/v2ray/access.log",
+	    "error": "/var/log/v2ray/error.log"
+	},
 	"inbounds": [
 		{
 			"port": 54823,
@@ -7,8 +12,7 @@
 				"clients": [
 					{
 						"id": "df5193c0-f6bf-4074-ba81-88ed5c7f92cb",
-						"alterId": 32
-					}
+						"alterId": 32					}
 				]
 			}
 		}
