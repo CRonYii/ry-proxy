@@ -1,0 +1,15 @@
+version: '2'
+services:
+  ry-v2ray:
+    hostname: ry-v2ray
+    container_name: ry-v2ray
+    build:
+      context: ry-v2ray
+      dockerfile: Dockerfile
+      args:
+        - V2RAY_PORT=${V2RAY_PORT}
+        - V2RAY_UUID=${V2RAY_UUID}
+    volumes:
+        - ./log/:/var/log/v2ray
+    ports:
+      - "${V2RAY_PORT}:${V2RAY_PORT}"
