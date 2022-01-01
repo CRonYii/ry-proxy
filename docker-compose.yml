@@ -11,6 +11,7 @@ services:
        - DOMAIN_NAME=${DOMAIN_NAME}
     ports:
       - "80:80"
+      - "443:443"
       - "${V2RAY_PORT}:${V2RAY_PORT}"
     networks:
       intnet:
