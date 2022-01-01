@@ -27,6 +27,7 @@ services:
       args:
         - V2RAY_PORT=${V2RAY_PORT}
         - V2RAY_UUID=${V2RAY_UUID}
+        - V2RAY_ALTERID=${V2RAY_ALTERID}
     volumes:
         - ./log/:/var/log/v2ray
     networks:
