@@ -1,4 +1,4 @@
-FROM haproxy:lts
+FROM haproxy:latest
 
 ARG DOMAIN_NAME
 ARG V2RAY_PORT
