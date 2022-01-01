@@ -1,7 +1,7 @@
 version: '2'
 services:
   ry-v2ray:
-    hostname: ry-v2ray
+    hostname: V2RAY
     container_name: ry-v2ray
     build:
       context: ry-v2ray
@@ -13,3 +13,13 @@ services:
         - ./log/:/var/log/v2ray
     ports:
       - "${V2RAY_PORT}:${V2RAY_PORT}"
+
+  nginx:
+    hostname: NGINX
+    container_name: ry-nginx
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: on-failure

@@ -15,4 +15,6 @@ WORKDIR /usr/local/etc/v2ray
 RUN sed -i "s/\$inbound_port/${V2RAY_PORT}/" config.json
 RUN sed -i "s/\$uuid/${V2RAY_UUID}/" config.json
 
-CMD [ "/usr/local/bin/v2ray", "-config", "/usr/local/etc/v2ray/config.json" ]
+EXPOSE ${V2RAY_PORT}
+
+CMD [ "v2ray", "-config", "/usr/local/etc/v2ray/config.json" ]
