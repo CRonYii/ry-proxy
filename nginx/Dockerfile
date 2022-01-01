@@ -1,6 +1,5 @@
 FROM nginx:mainline
 
-ADD camouflage_site.conf /etc/nginx/conf.d/camouflage_site.conf
-RUN mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak
+ADD camouflage_site.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
