@@ -6,7 +6,7 @@
 	},
 	"inbounds": [
 		{
-			"port": $inbound_port,
+			"port": 55345,
 			"protocol": "vmess",
 			"settings": {
 				"clients": [

@@ -10,8 +10,6 @@ services:
        - V2RAY_PORT=${V2RAY_PORT}
        - DOMAIN_NAME=${DOMAIN_NAME}
     ports:
-      - "80:80"
-      - "443:443"
       - "${V2RAY_PORT}:${V2RAY_PORT}"
     networks:
       intnet:
@@ -22,10 +20,9 @@ services:
     hostname: V2RAY
     container_name: ry-v2ray
     build:
-      context: ry-v2ray
+      context: v2ray
       dockerfile: Dockerfile
       args:
-        - V2RAY_PORT=${V2RAY_PORT}
         - V2RAY_UUID=${V2RAY_UUID}
         - V2RAY_ALTERID=${V2RAY_ALTERID}
     volumes:
@@ -62,3 +59,4 @@ networks:
       config:
         - subnet: 10.10.11.0/24
           gateway: 10.10.11.1
+
