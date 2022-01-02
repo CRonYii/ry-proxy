@@ -14,4 +14,6 @@ WORKDIR /usr/local/etc/haproxy
 RUN sed -i "s/\$DOMAIN_NAME/${DOMAIN_NAME}/" haproxy.cfg
 RUN sed -i "s/\$V2RAY_PORT/${V2RAY_PORT}/" haproxy.cfg
 
+RUN haproxy -c -V -f /usr/local/etc/haproxy/haproxy.cfg
+
 CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
