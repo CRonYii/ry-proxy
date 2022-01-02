@@ -1,0 +1,18 @@
+http://$DOMAIN_NAME {
+    redir https://$DOMAIN_NAME{url}
+}
+
+https://$DOMAIN_NAME {
+    log {
+        output stdout
+        level info
+    }
+    tls /etc/ssl/private/$DOMAIN_NAME.crt /etc/ssl/private/$DOMAIN_NAME.key
+    root * /usr/share/caddy
+    file_server
+    reverse_proxy /livedata https://10.10.11.3:$V2RAY_PORT {
+        transport http {
+            versions h2c
+        }
+    }
+}

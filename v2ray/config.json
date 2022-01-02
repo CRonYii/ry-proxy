@@ -15,6 +15,16 @@
 						"alterId": $alter_id
 					}
 				]
+			},
+			"streamSettings": {
+				"network": "h2",
+				"security": "tls",
+				"httpSettings": {
+					"path": "/livadata",
+					"host": [
+						"localhost"
+					]
+				}
 			}
 		}
 	],

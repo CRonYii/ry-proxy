@@ -1,10 +1,10 @@
 version: '2'
 services:
-  haproxy:
-    hostname: HAPROXY
-    container_name: ry-haproxy
+  caddy:
+    hostname: CADDY
+    container_name: ry-caddy
     build:
-      context: haproxy
+      context: caddy
       dockerfile: Dockerfile
       args:
        - V2RAY_PORT=${V2RAY_PORT}
@@ -12,7 +12,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "${V2RAY_PORT}:${V2RAY_PORT}"
+    volumes:
+        - ./caddy/html/:/usr/share/caddy
     networks:
       intnet:
         ipv4_address: 10.10.11.2
@@ -22,7 +23,7 @@ services:
     hostname: V2RAY
     container_name: ry-v2ray
     build:
-      context: ry-v2ray
+      context: v2ray
       dockerfile: Dockerfile
       args:
         - V2RAY_PORT=${V2RAY_PORT}
@@ -35,24 +36,7 @@ services:
         ipv4_address: 10.10.11.3
     restart: on-failure
     depends_on:
-      - haproxy
-
-  nginx:
-    hostname: NGINX
-    container_name: ry-nginx
-    build:
-      context: nginx
-      dockerfile: Dockerfile
-      args:
-        - DOMAIN_NAME=${DOMAIN_NAME}
-    volumes:
-      - ./nginx/html:/usr/share/nginx/html
-    networks:
-      intnet:
-        ipv4_address: 10.10.11.4
-    restart: on-failure
-    depends_on:
-      - haproxy
+      - caddy
 
 networks:
   intnet:
