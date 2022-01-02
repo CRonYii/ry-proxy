@@ -1,7 +1,7 @@
 {
 	"log": {
 		"loglevel": "warning",
-		"access": "/dev/null",
+		"access": "/dev/stdout",
 		"error": "/var/log/v2ray/error.log"
 	},
 	"inbounds": [
@@ -12,7 +12,7 @@
 				"clients": [
 					{
 						"id": "$uuid",
-						"alterId": 32
+						"alterId": 0
 					}
 				]
 			}
